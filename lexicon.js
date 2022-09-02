@@ -1,4 +1,5 @@
 let words = ["wrt", "wrf", "er", "ett", "rftt"];
+// let words = ["z","x"]
 let len = words.length;
 
 const lexicon = (words = []) => {
@@ -26,9 +27,7 @@ const lexicon = (words = []) => {
         }
     }
     
-    console.log(map)
     let res = [];
-    
     while(map.size > 0) {
         let el = [...map.keys()].find(k => [...map.values()].indexOf(k) < 0);
         res.push(el)
@@ -38,6 +37,9 @@ const lexicon = (words = []) => {
         }
         map.delete(el)
     }
+    
+    return res;
 }
 
-lexicon(words)
+const result = lexicon(words)
+console.log(result)
