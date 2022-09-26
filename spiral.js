@@ -1,54 +1,55 @@
 const spiralFn = (row, col, size, counter, direction, result) => {
     if(counter < 1) return result;
-    
     result[row][col] = counter;
     
+    let isNotVisted = undefined;
     switch (direction) {
         case 'up':
-            if(row > 0 && result[row-1][col] == 0) {
+            isNotVisted = row > 0 && result[row-1][col] == 0;
+            if(isNotVisted) {
                 row--;
             } else {
                 direction = 'left';
                 col--;
             }
 
-            counter--;
             break;
     
         case 'left': 
-            if(col > 0 && result[row][col-1] == 0) {
+            isNotVisted = col > 0 && result[row][col-1] == 0;
+            if(isNotVisted) {
                 col--;
             } else {
                 direction = 'down';
                 row++;
             }
             
-            counter--;
             break;
             
         case 'down': 
-            if(row < n-1 && result[row+1][col] == 0) {
+            isNotVisted = row < n-1 && result[row+1][col] == 0;
+            if(isNotVisted) {
                 row++;
             } else {
                 direction = 'right';
                 col++;
             }
             
-            counter--;
             break;
             
         case 'right': 
-             if(col < n-1 && result[row][col+1] == 0) {
+            isNotVisted = col < n-1 && result[row][col+1] == 0;
+            if(isNotVisted) {
                 col++;
             } else {
                 direction = 'up';
                 row--;
             }
             
-            counter--;
             break;
     }
     
+    counter--;
     spiralFn(row, col, size, counter, direction, result)
 }
 
@@ -65,6 +66,7 @@ const spiral = (n) => {
 const n = 5;
 const res = spiral(n);
 console.log(res)
+
 
 /*
  7x7:
