@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), 
+ * find the minimum number of conference rooms required.} 
+ * @returns 
+ */
+
 const minMeetingRooms = (intervals = []) => {
     if(!intervals || intervals.length < 1) return 0;
     let l = intervals.length;

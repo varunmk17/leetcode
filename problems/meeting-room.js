@@ -1,9 +1,15 @@
+/**
+ * 
+ * @param {Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
+ *   determine if a person could attend all meetings.} 
+ * @returns 
+ */
 const canAttendMeetings = (intervals = []) => {
     if(!intervals || intervals.length < 1) return true;
     
     intervals.sort((a, b) => a[0] - b[0]);
     let l = intervals.length;
-    let curr = [intervals[0][0], intervals[0][1]]
+    let curr = intervals[0];
     
     for(let i = 1; i < l; i++) {
         const [start, end] = curr;
