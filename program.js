@@ -1,8 +1,6 @@
 const program = {
-    run: (input) => {
-        let res = "hello world";
-
-        return res;
+    run: (fn, ...args) => {
+        return fn(...args);
     }
 }
 
